@@ -35,7 +35,7 @@ function _xor(data, key) {
  * Xor Crypt constructor
  * @param {Buffer} key 
  */
-function xorCrypt(key) {
+function xorCrypto(key) {
     let _self = this;
 
     if (typeof (key) === 'undefined') {
@@ -61,14 +61,14 @@ function xorCrypt(key) {
 /**
  * Random bytes from OpenSSL
  */
-xorCrypt.prototype._random = () => {
+xorCrypto.prototype._random = () => {
     return crypto.randomBytes(XOR_KEY_SIZE);
 }
 
 /**
  * Encrypt method
  */
-xorCrypt.prototype._encrypt = (data, key, rnd) => {
+xorCrypto.prototype._encrypt = (data, key, rnd) => {
     let buf = new Buffer(data.length + rnd.length);
     let encrypted = _xor(data, _xorKey(key, rnd));
     rnd.copy(buf, 0, 0);
@@ -79,7 +79,7 @@ xorCrypt.prototype._encrypt = (data, key, rnd) => {
 /**
  * Decrypt method
  */
-xorCrypt.prototype._decrypt = (data, key) => {
+xorCrypto.prototype._decrypt = (data, key) => {
     let buf = new Buffer(data.length - XOR_KEY_SIZE);
     let rnd = new Buffer(XOR_KEY_SIZE);
     data.copy(rnd, 0, 0, rnd.length);
@@ -87,4 +87,4 @@ xorCrypt.prototype._decrypt = (data, key) => {
     return _xor(buf, _xorKey(key, rnd));
 }
 
-module.exports = xorCrypt;
+module.exports = xorCrypto;

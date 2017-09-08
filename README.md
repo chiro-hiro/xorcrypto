@@ -1,4 +1,4 @@
-# xorCrypt
+# xorCrypto
 
 Simple and lightweight algorithm, this encryption use `SHA256` as `PRNG` to create XOR-KEY.
 
@@ -14,13 +14,13 @@ Simple and lightweight algorithm, this encryption use `SHA256` as `PRNG` to crea
 ## Installation
 Require NodeJs
 ```bash
-npm install xorcrypt
+npm install xorcrypto
 ```
 ## Usage
 ```javascript
-const xorCrypt = require('xorcrypt');
+const xorCrypto = require('xorcrypto');
 
-let xo = new xorCrypt(new Buffer('My secret key, I will share with my friend.'));
+let xo = new xorCrypto(new Buffer('My secret key, I will share with my friend.'));
 let v, e, d;
 v = new Buffer('This is my secret message!');
 
@@ -40,4 +40,4 @@ Encrypted: 0bddba0319d71411503cb129d95eaa2006e33f9e5a3fdacce716d3e4b16e79cdeca63
 Decrypted: This is my secret message!
 ```
 ## License
-This module distributed under [MIT License](https://github.com/tad88dev/xorcrypt/blob/master/LICENSE)
+This module distributed under [MIT License](https://github.com/tad88dev/xorcrypto/blob/master/LICENSE)

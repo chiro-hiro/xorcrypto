@@ -1,5 +1,5 @@
 {
-  "name": "xorcrypt",
+  "name": "xorcrypto",
   "version": "0.0.1",
   "description": "XOR Encryption",
   "main": "index.js",
@@ -8,18 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tad88dev/xorcrypt.git"
+    "url": "git+https://github.com/tad88dev/xorcrypto.git"
   },
   "keywords": [
     "xorcrypt",
     "encryption",
     "xor",
-    "crypto"
+    "crypto",
+    "xorcrypto"
   ],
   "author": "tad88.dev@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tad88dev/xorcrypt/issues"
+    "url": "https://github.com/tad88dev/xorcrypto/issues"
   },
-  "homepage": "https://github.com/tad88dev/xorcrypt#readme"
+  "homepage": "https://github.com/tad88dev/xorcrypto#readme"
 }
