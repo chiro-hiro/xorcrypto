@@ -1,0 +1,2 @@
+# xorcrypt
+Simple XOR encryption
