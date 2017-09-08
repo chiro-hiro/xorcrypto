@@ -3,7 +3,7 @@
 Simple and lightweight algorithm, this encryption use `SHA256` as `PRNG` to create XOR-KEY.
 
 ## Features
-- XOR-KEY will be change every 32 bytes
+- XOR-KEY will be changed every 32 bytes
 - XOR-KEY was created from `SHA256` of `SecrectKey` and `OpenSSL RNG's value`
 - Simple
 - Lightweight
