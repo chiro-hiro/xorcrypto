@@ -18,9 +18,11 @@ npm install xorcrypto
 ```
 ## Usage
 ```javascript
-let myXorCrypto = new xorCrypto(new Buffer('My secret key, I will share with my friend.'));
+const xorCrypto = require('xorcrypto');
+
+let myXorCrypto = new xorCrypto(Buffer.from('My secret key, I will share with my friend.'));
 let value, encrypted, decrypted;
-value = new Buffer('This is my secret message!');
+value = Buffer.from('This is my secret message!');
 
 encrypted = myXorCrypto.encrypt(value);
 

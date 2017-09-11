@@ -38,7 +38,7 @@ function _onlyBuffer(data) {
  * @param {Buffer} key 
  */
 function _xor(data, key) {
-    let buf = new Buffer(data.length);
+    let buf = Buffer.allocUnsafe(data.length);
     let otk = _sha256(key); //One time key
     for (let i = 0, c = 0; i < data.length; i++ , c++) {
         if (c == key.length) {
@@ -74,16 +74,16 @@ function xorCrypto(key) {
  */
 xorCrypto.prototype._init = (key) => {
     if (typeof (key) === 'undefined') {
-        var key = new Buffer('You will not know about me');
+        var key = Buffer.from('You will not know about me');
     }
-    this._key = _sha256(_onlyBuffer(key), new Buffer('48656c6c6f2c49276d20436869726f21', 'hex'));
+    this._key = _sha256(_onlyBuffer(key), Buffer.from('48656c6c6f2c49276d20436869726f21', 'hex'));
 }
 
 /**
  * Encrypt method
  */
 xorCrypto.prototype._encrypt = (data, rnd) => {
-    let buf = new Buffer(data.length + rnd.length);
+    let buf = Buffer.allocUnsafe(data.length + rnd.length);
     let encrypted = _xor(data, _sha256(this._key, rnd));
     rnd.copy(buf, 0, 0);
     encrypted.copy(buf, rnd.length, 0);
@@ -94,8 +94,8 @@ xorCrypto.prototype._encrypt = (data, rnd) => {
  * Decrypt method
  */
 xorCrypto.prototype._decrypt = (data) => {
-    let buf = new Buffer(data.length - XOR_KEY_SIZE);
-    let rnd = new Buffer(XOR_KEY_SIZE);
+    let buf = Buffer.allocUnsafe(data.length - XOR_KEY_SIZE);
+    let rnd = Buffer.allocUnsafe(XOR_KEY_SIZE);
     data.copy(rnd, 0, 0, rnd.length);
     data.copy(buf, 0, rnd.length);
     return _xor(buf, _sha256(this._key, rnd));
