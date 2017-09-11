@@ -29,7 +29,7 @@ function _onlyBuffer(data) {
     if (typeof (data) !== 'undefined' && Buffer.isBuffer(data)) {
         return data;
     }
-    throw ('Only Buffer will be accepted');
+    throw new TypeError('Only Buffer will be accepted');
 }
 
 /**
