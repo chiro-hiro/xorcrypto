@@ -33,18 +33,6 @@ function _onlyBuffer(data) {
 }
 
 /**
- * Create bigger xor key from static key and random bytes
- * @param {Buffer} key 
- * @param {Buffer} rnd 
- */
-function _xorKey(key, rnd) {
-    let rawKey = new Buffer(key.length + rnd.length);
-    key.copy(rawKey, 0, 0);
-    rnd.copy(rawKey, key.length, 0);
-    return _sha256(rawKey);
-}
-
-/**
  * Xor data with key
  * @param {Buffer} data 
  * @param {Buffer} key 
@@ -90,7 +78,7 @@ xorCrypto.prototype._init = (key) => {
     if (typeof (key) === 'undefined') {
         var key = new Buffer('You will not know about me');
     }
-    this._key = _xorKey(_onlyBuffer(key), new Buffer('48656c6c6f2c49276d20436869726f21', 'hex'));
+    this._key = _sha256(_onlyBuffer(key), new Buffer('48656c6c6f2c49276d20436869726f21', 'hex'));
 }
 
 /**
@@ -98,7 +86,7 @@ xorCrypto.prototype._init = (key) => {
  */
 xorCrypto.prototype._encrypt = (data, rnd) => {
     let buf = new Buffer(data.length + rnd.length);
-    let encrypted = _xor(data, _xorKey(this._key, rnd));
+    let encrypted = _xor(data, _sha256(this._key, rnd));
     rnd.copy(buf, 0, 0);
     encrypted.copy(buf, rnd.length, 0);
     return buf;
@@ -112,7 +100,7 @@ xorCrypto.prototype._decrypt = (data) => {
     let rnd = new Buffer(XOR_KEY_SIZE);
     data.copy(rnd, 0, 0, rnd.length);
     data.copy(buf, 0, rnd.length);
-    return _xor(buf, _xorKey(this._key, rnd));
+    return _xor(buf, _sha256(this._key, rnd));
 }
 
 /**
