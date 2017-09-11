@@ -1,10 +1,10 @@
 # xorCrypto
 
-Simple and lightweight algorithm, this encryption use `SHA256` as `PRNG` to create XOR-KEY.
+Simple and lightweight algorithm, this encryption used `SHA256` as `PRNG` to create `XOR-KEY`.
 
 ## Features
-- XOR-KEY will be changed every 32 bytes
-- XOR-KEY was created from `SHA256` of `SecrectKey` and `OpenSSL RNG's value`
+- `XOR-KEY` will be changed every 32 bytes
+- `XOR-KEY` was created from `SHA256` of `SecrectKey` and `OpenSSL RNG's value`
 - Simple
 - Lightweight
 - Easy to implement
@@ -18,26 +18,29 @@ npm install xorcrypto
 ```
 ## Usage
 ```javascript
-const xorCrypto = require('xorcrypto');
+let myXorCrypto = new xorCrypto(new Buffer('My secret key, I will share with my friend.'));
+let value, encrypted, decrypted;
+value = new Buffer('This is my secret message!');
 
-let xo = new xorCrypto(new Buffer('My secret key, I will share with my friend.'));
-let v, e, d;
-v = new Buffer('This is my secret message!');
+encrypted = myXorCrypto.encrypt(value);
 
-e = xo.encrypt(v);
-d = xo.decrypt(e);
-console.log(`Value: ${v}\nEncrypted: ${e.toString('hex')}\nDecrypted: ${d.toString()}`);
+decrypted = myXorCrypto.decrypt(encrypted);
+
+console.log(`Value: ${value}\nEncrypted: ${encrypted.toString('hex')}\nDecrypted: ${decrypted.toString()}\nIs the same: ${decrypted.toString() == value}`);
 ```
 Result:
 ```bash
 chiro@moonfang:~/labs$ node test.js 
 Value: This is my secret message!
-Encrypted: cc8a630f18837251bd1bbda0c247c443d3cccfe2bfdf598839836f74a0eff248b45fba8b4c445726be3c
-Decrypt: This is my secret message!
+Encrypted: 970504f07e0ee97aa3e53c55414fc6f01b581e0d441167c64c8a8f807bc5617f59c190bc555c96eaf504
+Decrypted: This is my secret message!
+Is the same: true
 chiro@moonfang:~/labs$ node test.js 
 Value: This is my secret message!
-Encrypted: 0bddba0319d71411503cb129d95eaa2006e33f9e5a3fdacce716d3e4b16e79cdeca63c1f3abc589b2af5
+Encrypted: 79f0a536a36e1a284ec450acc14651c00b9c043462158d2177dccda7d821bc35c8335fa68f610d01c0f9
 Decrypted: This is my secret message!
+Is the same: true
+chiro@moonfang:~/labs$ 
 ```
 ## License
 This module distributed under [MIT License](https://github.com/tad88dev/xorcrypto/blob/master/LICENSE)
