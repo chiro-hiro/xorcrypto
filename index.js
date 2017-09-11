@@ -69,8 +69,6 @@ function xorCrypto(key) {
     }
 }
 
-
-
 /**
  * Init function
  */
