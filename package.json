@@ -4,7 +4,7 @@
   "description": "XOR Encryption",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./test/test.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tad88dev/xorcrypto/issues"
+  },
+  "devDependencies": {
+    "tape": "^4.6.2"
   },
   "homepage": "https://github.com/tad88dev/xorcrypto#readme"
 }
