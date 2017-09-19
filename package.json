@@ -1,10 +1,10 @@
 {
   "name": "xorcrypto",
   "version": "1.0.0",
-  "description": "XOR Encryption",
+  "description": "Simple and lightweight hash based encryption",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test/test.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
     "url": "https://github.com/tad88dev/xorcrypto/issues"
   },
   "devDependencies": {
-    "tape": "^4.6.2"
+    "mocha": "^3.5.3"
   },
   "homepage": "https://github.com/tad88dev/xorcrypto#readme"
 }
