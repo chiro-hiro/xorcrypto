@@ -1,6 +1,6 @@
-# xorCrypto 
-
-<img src="https://travis-ci.org/tad88dev/xorcrypto.svg?branch=master" alt="build:started">
+# xorCrypto
+[![npm version](https://travis-ci.org/tad88dev/xorcrypto.svg?branch=master)](https://travis-ci.org/tad88dev/xorcrypto.svg?branch=master)
+[![npm version](https://badge.fury.io/js/xorcrypto.svg)](https://badge.fury.io/js/xorcrypto)
 
 Simple and lightweight algorithm, this encryption used `SHA256` as `PRNG` to create `XOR-KEY`.
 

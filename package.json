@@ -1,6 +1,6 @@
 {
   "name": "xorcrypto",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple and lightweight hash based encryption",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,8 @@
     "encryption",
     "xor",
     "crypto",
-    "xorcrypto"
+    "xorcrypto",
+    "hashbased"
   ],
   "author": "tad88.dev@gmail.com",
   "license": "MIT",
