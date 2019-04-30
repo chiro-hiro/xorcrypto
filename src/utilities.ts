@@ -4,8 +4,8 @@ import { Buffer } from 'safe-buffer'
 
 class utilities {
 
-  static random(size: number = 0) {
-    return randomBytes(size)
+  static random(size: number = 0): Buffer {
+    return Buffer.from(randomBytes(size))
   }
 
   static sha256(...params: any): string {
@@ -16,7 +16,7 @@ class utilities {
     return hash.hex()
   }
 
-  static xor(a: Buffer, b: Buffer) {
+  static xor(a: Buffer, b: Buffer): Buffer {
     if (a.length !== b.length) {
       throw Error('Xor size is different')
     }

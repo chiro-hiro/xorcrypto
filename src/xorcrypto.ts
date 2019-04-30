@@ -1,7 +1,5 @@
 import { Buffer } from 'safe-buffer'
 import utilities from './utilities'
-import { randomBytes } from 'crypto';
-
 const STREAM_SIZE = 32
 const PADDING_SIZE = 1
 
@@ -13,8 +11,8 @@ export class xorCrypto {
     this._secretKey = Buffer.from(utilities.sha256(secret), 'hex')
   }
 
-  private _randomKey() {
-    return Buffer.from(randomBytes(STREAM_SIZE))
+  private _randomKey(): Buffer {
+    return utilities.random(STREAM_SIZE)
   }
 
   private _childKey(): Buffer {
@@ -33,7 +31,7 @@ export class xorCrypto {
     return STREAM_SIZE - (data.length % STREAM_SIZE)
   }
 
-  private _padding(data: Buffer) {
+  private _padding(data: Buffer): Buffer {
     let paddingSize = this._paddingSize(data)
     if (paddingSize === 0) {
       return data
@@ -83,7 +81,7 @@ export class xorCrypto {
         childKey = this._nextChildKey(childKey)
         c = 0
       }
-      decryptedData.writeUInt32BE((encryptedData.readUInt32BE(i+metaDataSize) ^ childKey.readUInt32BE(c)) >>> 0, i)
+      decryptedData.writeUInt32BE((encryptedData.readUInt32BE(i + metaDataSize) ^ childKey.readUInt32BE(c)) >>> 0, i)
     }
     return decryptedData.slice(0, decryptedData.length - paddingSize)
   }

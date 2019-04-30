@@ -4,6 +4,7 @@
   "description": "Simple and lightweight hash based encryption",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "mocha"
   },
   "repository": {

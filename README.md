@@ -2,6 +2,7 @@
 [![npm version](https://travis-ci.org/chiro-hiro/xorcrypto.svg?branch=master)](https://travis-ci.org/chiro-hiro/xorcrypto.svg?branch=master)
 [![npm version](https://badge.fury.io/js/xorcrypto.svg)](https://badge.fury.io/js/xorcrypto)
 
+`XOR Cipher` is secure, as long as  `key length` equal to `data length`.
 Simple and lightweight algorithm, this encryption used `SHA256` as `PRNG` to create `XOR-KEY`.
 
 ## Features
