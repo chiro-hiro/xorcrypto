@@ -1,5 +1,5 @@
 # xorCrypto
-[![npm version](https://travis-ci.org/tad88dev/xorcrypto.svg?branch=master)](https://travis-ci.org/tad88dev/xorcrypto.svg?branch=master)
+[![npm version](https://travis-ci.org/chiro-hiro/xorcrypto.svg?branch=master)](https://travis-ci.org/chiro-hiro/xorcrypto.svg?branch=master)
 [![npm version](https://badge.fury.io/js/xorcrypto.svg)](https://badge.fury.io/js/xorcrypto)
 
 Simple and lightweight algorithm, this encryption used `SHA256` as `PRNG` to create `XOR-KEY`.
@@ -47,4 +47,4 @@ Is the same: true
 chiro@moonfang:~/labs$ 
 ```
 ## License
-This module distributed under [MIT License](https://github.com/tad88dev/xorcrypto/blob/master/LICENSE)
+This module distributed under [MIT License](https://github.com/chiro-hiro/xorcrypto/blob/master/LICENSE)
